@@ -1,5 +1,4 @@
 import { ObjectId } from "mongodb"
-import { ConnectToMongoDb } from "../../db"
 import carrosDAO from "./dao"
 
 export default {

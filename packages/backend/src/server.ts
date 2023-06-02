@@ -13,7 +13,7 @@ class Server {
     this.app = express()
     this.loadMiddlewares()
     this.loadRoutes()
-    await this.connectToDb()
+    await this.connectToMongoDb()
   }
 
   loadMiddlewares() {
@@ -27,11 +27,10 @@ class Server {
     router(this.app)
   }
 
-  async connectToDb() {
-    const { ConnectToMongoDb, ConnectToPostgresDb } = require("./db")
+  async connectToMongoDb() {
+    const { connectToDb } = require("./db")
 
-    await ConnectToMongoDb()
-    await ConnectToPostgresDb()
+    await connectToDb()
   }
 }
 
