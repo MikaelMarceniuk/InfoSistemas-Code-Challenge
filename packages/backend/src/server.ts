@@ -1,18 +1,28 @@
+import "dotenv/config"
 import express, { Express } from "express"
 import morgan from "morgan"
-import "dotenv/config"
 
 class Server {
   app: Express
+  isConnectedToDb: boolean
 
   constructor() {
     this.app = express()
+    this.app.use(morgan("dev"))
     this.loadRoutes()
-    morgan("dev")
+    ;(async () => await this.connectToDb())()
   }
 
   loadRoutes() {
     this.app.get("/api", (req, res) => res.send({ message: "Hello World!" }))
+  }
+
+  async connectToDb() {
+    const { ConnectToMongoDb } = require("./db")
+
+    await ConnectToMongoDb()
+
+    this.isConnectedToDb = true
   }
 }
 
