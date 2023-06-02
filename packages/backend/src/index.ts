@@ -1,5 +1,8 @@
-import App from "./server"
+import Server from "./server"
+;(async () => {
+  await Server.initialize()
 
-App.listen(process.env.PORT, () =>
-  console.log(`Backend is running at port ${process.env.PORT}`)
-)
+  Server.app.listen(process.env.PORT, () =>
+    console.log(`Backend is running at port ${process.env.PORT}`)
+  )
+})()

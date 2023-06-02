@@ -6,11 +6,16 @@ import morgan from "morgan"
 class Server {
   app: Express
 
-  constructor() {
+  constructor() {}
+
+  async initialize() {
     this.app = express()
-    this.app.use(morgan("dev"))
     this.loadRoutes()
-    ;(async () => await this.connectToDb())()
+    await this.connectToDb()
+  }
+
+  loadMiddlewares() {
+    this.app.use(morgan("dev"))
   }
 
   loadRoutes() {
@@ -25,4 +30,4 @@ class Server {
   }
 }
 
-export default new Server().app
+export default new Server()
