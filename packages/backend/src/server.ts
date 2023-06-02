@@ -2,6 +2,7 @@ import "dotenv/config"
 import "reflect-metadata"
 import express, { Express } from "express"
 import morgan from "morgan"
+import router from "./router"
 
 class Server {
   app: Express
@@ -23,6 +24,7 @@ class Server {
 
   loadRoutes() {
     this.app.get("/api", (req, res) => res.send({ message: "Hello World!" }))
+    router(this.app)
   }
 
   async connectToDb() {
