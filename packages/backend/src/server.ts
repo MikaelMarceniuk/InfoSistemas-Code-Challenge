@@ -1,10 +1,10 @@
 import "dotenv/config"
+import "reflect-metadata"
 import express, { Express } from "express"
 import morgan from "morgan"
 
 class Server {
   app: Express
-  isConnectedToDb: boolean
 
   constructor() {
     this.app = express()
@@ -18,11 +18,10 @@ class Server {
   }
 
   async connectToDb() {
-    const { ConnectToMongoDb } = require("./db")
+    const { ConnectToMongoDb, ConnectToPostgresDb } = require("./db")
 
     await ConnectToMongoDb()
-
-    this.isConnectedToDb = true
+    await ConnectToPostgresDb()
   }
 }
 

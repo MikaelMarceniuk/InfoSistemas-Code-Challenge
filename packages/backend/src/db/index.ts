@@ -1,3 +1,4 @@
 import ConnectToMongoDb from "./mongodb"
+import ConnectToPostgresDb from "./postgres"
 
-export { ConnectToMongoDb }
+export { ConnectToMongoDb, ConnectToPostgresDb }
