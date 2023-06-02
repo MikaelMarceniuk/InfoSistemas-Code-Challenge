@@ -10,12 +10,15 @@ class Server {
 
   async initialize() {
     this.app = express()
+    this.loadMiddlewares()
     this.loadRoutes()
     await this.connectToDb()
   }
 
   loadMiddlewares() {
     this.app.use(morgan("dev"))
+    this.app.use(express.json())
+    this.app.use(express.urlencoded({ extended: true }))
   }
 
   loadRoutes() {
