@@ -1,0 +1,11 @@
+{
+  "name": "infosistemas-codechallenge",
+  "version": "1.0.0",
+  "repository": "git@github.com:MikaelMarceniuk/InfoSistemas-Code-Challenge.git",
+  "author": "Mikael Marceniuk",
+  "license": "MIT",
+  "private": true,
+  "workspaces": [
+    "packages/**"
+  ]
+}
