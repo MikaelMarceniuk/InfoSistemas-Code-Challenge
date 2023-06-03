@@ -1,15 +1,16 @@
 import { ObjectId } from "mongodb"
 import carrosDAO from "./dao"
+import { ApiResponse } from "../../utils"
 
 export default {
   findAll: async () => {
-    return { isSuccess: true, data: await carrosDAO.findAll() }
+    return new ApiResponse(true, await carrosDAO.findAll())
   },
 
   create: async (newCarro) => {
     const result = await carrosDAO.create(newCarro)
 
-    return { isSuccess: true, data: result.insertedId }
+    return new ApiResponse(true, result.insertedId)
   },
 
   update: async (carroId, body) => {
@@ -18,12 +19,12 @@ export default {
       $set: { placa: body.placa },
     }
 
-    return { isSuccess: true, data: await carrosDAO.update(query, newCarro) }
+    return new ApiResponse(true, await carrosDAO.update(query, newCarro))
   },
 
   delete: async (carroId) => {
     const query = { _id: new ObjectId(carroId) }
 
-    return { isSuccess: true, data: await carrosDAO.delete(query) }
+    return new ApiResponse(true, await carrosDAO.delete(query))
   },
 }
