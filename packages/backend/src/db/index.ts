@@ -1,4 +1,8 @@
-import ConnectToMongoDb from "./mongodb"
-import ConnectToPostgresDb from "./postgres"
+import connectToDb from "./connectToDb"
+import {
+  getCollection,
+  EAvaliableCollections,
+  collections,
+} from "./getCollection"
 
-export { ConnectToMongoDb, ConnectToPostgresDb }
+export { connectToDb, getCollection, EAvaliableCollections, collections }

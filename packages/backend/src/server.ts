@@ -2,27 +2,36 @@ import "dotenv/config"
 import "reflect-metadata"
 import express, { Express } from "express"
 import morgan from "morgan"
+import router from "./router"
 
 class Server {
   app: Express
 
-  constructor() {
+  constructor() {}
+
+  async initialize() {
     this.app = express()
-    this.app.use(morgan("dev"))
+    this.loadMiddlewares()
     this.loadRoutes()
-    ;(async () => await this.connectToDb())()
+    await this.connectToMongoDb()
+  }
+
+  loadMiddlewares() {
+    if (process.env.NODE_ENV != "test") this.app.use(morgan("dev"))
+    this.app.use(express.json())
+    this.app.use(express.urlencoded({ extended: true }))
   }
 
   loadRoutes() {
     this.app.get("/api", (req, res) => res.send({ message: "Hello World!" }))
+    router(this.app)
   }
 
-  async connectToDb() {
-    const { ConnectToMongoDb, ConnectToPostgresDb } = require("./db")
+  async connectToMongoDb() {
+    const { connectToDb } = require("./db")
 
-    await ConnectToMongoDb()
-    await ConnectToPostgresDb()
+    await connectToDb()
   }
 }
 
-export default new Server().app
+export default new Server()
