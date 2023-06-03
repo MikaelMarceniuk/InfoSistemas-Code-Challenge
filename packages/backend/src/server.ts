@@ -17,7 +17,7 @@ class Server {
   }
 
   loadMiddlewares() {
-    this.app.use(morgan("dev"))
+    if (process.env.NODE_ENV != "test") this.app.use(morgan("dev"))
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
   }

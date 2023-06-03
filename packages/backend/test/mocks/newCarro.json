@@ -1,0 +1,34 @@
+[
+  {
+    "marca": "BMW",
+    "modelo": "528iA M Sport 2.0 Turbo 16V 245cv 4p",
+    "ano": 2013,
+    "renavam": "40353026211",
+    "placa": "NCF-5403",
+    "chassi": "68D fFT58Z u0 9y2888"
+  },
+  {
+    "marca": "BMW",
+    "modelo": "328iA M Sport 2.0 16V Flex 4p",
+    "ano": 2015,
+    "renavam": "29773464105",
+    "placa": "LWF-9182",
+    "chassi": "5pu 0105pK Vh wZ0608"
+  },
+  {
+    "marca": "Buggy",
+    "modelo": "Buggy 1.6 2-Lug.",
+    "ano": 1988,
+    "renavam": "95188657130",
+    "placa": "KCZ-8765",
+    "chassi": "70G nzbAJa Aw x96722"
+  },
+  {
+    "marca": "Ford",
+    "modelo": "F-250 Tropicampo CD 3.9 TB Diesel",
+    "ano": 2007,
+    "renavam": "04694418318",
+    "placa": "NEV-7890",
+    "chassi": "8GS jur7NM KG wR2946"
+  }
+]
