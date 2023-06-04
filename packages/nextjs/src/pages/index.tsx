@@ -1,7 +1,12 @@
-import { Navbar } from "../components"
+import { CarroList, Navbar } from "../components"
 
 const MainPage = () => {
-  return <Navbar />
+  return (
+    <>
+      <Navbar />
+      <CarroList />
+    </>
+  )
 }
 
 export default MainPage

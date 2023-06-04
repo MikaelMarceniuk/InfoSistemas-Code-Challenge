@@ -1,6 +1,7 @@
 import "dotenv/config"
 import "reflect-metadata"
 import express, { Express } from "express"
+import cors from "cors"
 import morgan from "morgan"
 import router from "./router"
 
@@ -20,6 +21,7 @@ class Server {
     if (process.env.NODE_ENV != "test") this.app.use(morgan("dev"))
     this.app.use(express.json())
     this.app.use(express.urlencoded({ extended: true }))
+    this.app.use(cors({ origin: "*" }))
   }
 
   loadRoutes() {
