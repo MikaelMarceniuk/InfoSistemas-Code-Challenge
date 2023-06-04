@@ -1,5 +1,7 @@
+import { Navbar } from "../components"
+
 const MainPage = () => {
-  return <div>This is main page</div>
+  return <Navbar />
 }
 
 export default MainPage
